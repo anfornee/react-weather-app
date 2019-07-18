@@ -1,0 +1,62 @@
+[
+    {
+        "desc": "Clear",
+        "image": "https://image.flaticon.com/icons/svg/365/365237.svg"
+    },
+    {
+        "desc": "Drizzle",
+        "image": "https://image.flaticon.com/icons/svg/365/365225.svg"
+    },
+    {
+        "desc": "Clouds",
+        "image": "https://image.flaticon.com/icons/svg/365/365229.svg"
+    },
+    {
+        "desc": "Rain",
+        "image": "https://image.flaticon.com/icons/svg/365/365226.svg"
+    },
+    {
+        "desc": "Thunderstorm",
+        "image": "https://image.flaticon.com/icons/svg/365/365235.svg"
+    },
+    {
+        "desc": "Snow",
+        "image": "https://image.flaticon.com/icons/svg/365/365233.svg"
+    },
+    {
+        "desc": "Mist",
+        "image": "https://image.flaticon.com/icons/svg/1113/1113758.svg"
+    },
+    {
+        "desc": "Smoke",
+        "image": "http://openweathermap.org/img/wn/50d@2x.png"
+    },
+    {
+        "desc": "Haze",
+        "image": "https://image.flaticon.com/icons/svg/1113/1113758.svg"
+    },
+    {
+        "desc": "Dust",
+        "image": "https://image.flaticon.com/icons/svg/874/874315.svg"
+    },
+    {
+        "desc": "Fog",
+        "image": "https://image.flaticon.com/icons/svg/1113/1113758.svg"
+    },
+    {
+        "desc": "Sand",
+        "image": "https://image.flaticon.com/icons/svg/874/874315.svg"
+    },
+    {
+        "desc": "Ash",
+        "image": "http://openweathermap.org/img/wn/50d@2x.png"
+    },
+    {
+        "desc": "Squall",
+        "image": "https://image.flaticon.com/icons/svg/365/365235.svg"
+    },
+    {
+        "desc": "Tornado",
+        "image": "https://image.flaticon.com/icons/svg/365/365238.svg"
+    }
+]
