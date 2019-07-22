@@ -1,33 +1,36 @@
 import React, { Component } from 'react';
-import CitySelector from './CitySelector';
-
-var weatherApiKey = '1788247f77c3a3319623f2b4d21f03f4';
-
 
 class CurrentWeather extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            city: this.props.city,
-            temp: this.props.temp,
-            desc: this.props.detail,
-            icon: this.props.icon
+            city: undefined,
+            temp: undefined,
+            desc: undefined,
+            icon: undefined
         }
     }
 
-    componentWillReceiveProps(nextProps) {
-        if (this.props !== nextProps) {
-            this.setState(nextProps);
-        }
+    componentDidMount() {
+        const { city } = this.props.location.state;
+        const { temp } = this.props.location.state;
+        const { detail } = this.props.location.state;
+        const { icon } = this.props.location.state;
+        this.setState({
+            city: city,
+            temp: temp,
+            desc: detail,
+            icon: icon
+        });
     }
 
     render() {
         return (
             <div className="curWeaComp">
                 <h3>{this.state.city}</h3>
-                <h3>{this.state.temp}</h3>
+                <h3>{this.state.temp}˚F</h3>
                 <h3>{this.state.desc}</h3>
-                <img className='weatherIcon' src={this.state.icon} />
+                <img className='weatherIcon' src={this.state.icon} alt={'weather-icon'} />
             </div>
         );
     }

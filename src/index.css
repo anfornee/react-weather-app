@@ -76,8 +76,12 @@ h3 {
 }
 
 .dropdowns {
+  background:#FFFFFF;
+  border: none;
+  box-shadow: 1px 1px 3px 1px rgba(209, 209, 209, 0.808);
+  margin-top: 1em;
   width: 40%;
-  height: 30px;
+  height: 40px;
 }
 
 #weatherLink {
@@ -92,7 +96,6 @@ h3 {
   border-radius: 1em;
   background: #06D6A0;
   color: white;
-  /* transition: .05s; */
 }
 
 .getWeatherButton:active {
@@ -108,15 +111,17 @@ h2 {
 
 .curWeaComp {
   display: flex;
+  position: relative;
+  top: 20px;
   margin-top: 0px;
   font-size: 20px;
-  min-height: 30%;
-  max-height: 30%;
+  min-height: 40%;
+  max-height: 50%;
   width: 40%;
-  padding: 40px 0px 40px 0px;
-  background: whitesmoke;
+  padding: 20px 0px 20px 0px;
+  background: #FCFCFC;
   border-radius: 20px;
-  box-shadow: 3px 3px 3px 3px rgb(161, 161, 161);
+  box-shadow: 3px 10px 20px 3px rgb(161, 161, 161);
   flex-direction: column;
   justify-content: space-around; 
   align-items: center;

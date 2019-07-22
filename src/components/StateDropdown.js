@@ -8,12 +8,10 @@ import { getAllCountries, getCountryById, getStatesOfCountry, getStateById, getC
 
 var iconsList = require("../images/icons.json");
 
-class CitySelector extends Component {
+class StateDropdown extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            country: new getAllCountries(),
-            countryName: undefined,
             stReActive: 'none',
             stateRegion: [''],
             city: [''],
@@ -28,6 +26,9 @@ class CitySelector extends Component {
             icon: undefined,
             error: ""
         }
+        this.selCo = '';
+        this.selSt = '';
+        this.selCt = '';
     }
 
     handleChange = (e) => {
@@ -38,6 +39,8 @@ class CitySelector extends Component {
             countryName: coName.name,
             stateRegion: new getStatesOfCountry(coId),
             stReActive: 'inherit'
+        }, () => {
+            console.log(`country: ${this.state.countryName} `);
         });
     }
 
@@ -47,6 +50,8 @@ class CitySelector extends Component {
         this.setState({
             city: new getCitiesOfState(stId),
             stateName: stName.name
+        }, () => {
+            console.log(`country: ${this.state.countryName}, state: ${this.state.stateName}`);
         });
     }
 
@@ -56,15 +61,15 @@ class CitySelector extends Component {
             long: res.results[0].locations[0].latLng.lng
         }, () => {
             getWeather(this.state.lat, this.state.long).then(res => {
-                var icon = iconsList.filter(icon => icon.desc === res.weather[0].main);
+                var icon = iconsList.filter(icon => icon.desc == res.weather[0].main);
                 this.setState({
-                    buttonActive: 'inherit',
+                    temp: Math.floor(res.main.temp),
                     desc: res.weather[0].main,
                     detail: res.weather[0].description,
                     icon: icon[0].image,
+                    buttonActive: 'inherit',
                     lat: undefined,
-                    long: undefined,
-                    temp: Math.floor(res.main.temp)
+                    long: undefined
                 });
             });
         });
@@ -79,41 +84,25 @@ class CitySelector extends Component {
         });
     }
 
-    resetDrops = (e) => {
-        this.setState({
-            city: [''],
-            country: new getAllCountries(),
-            stateRegion: [''],
-            buttonActive: 'none'
-        })
-    }
-
     render() {
         const city = this.state.cityName;
         return (
             <Router>
                 <div className="selectorContainer">
                     <div className="dropdownContainer">
-                        <h3>Select a City</h3>
-                        <select id="first" onChange={this.handleChange} className="dropdowns">
-                            <option>Select a country</option>
-                            {this.state.country.map((country) => <option key={country.id} value={country.id}>
-                                {country.name}
-                            </option>)}
-                        </select>
                         <select className="dropdowns" onChange={this.handleThisChange}>
                             <option>Select a state/region...</option>
-                            {this.state.stateRegion.map((states) => <option key={states.id + 2000} value={states.id}>
+                            {this.state.stateRegion.map((states) => <option key={states.id} value={states.id}>
                                 {states.name}
                             </option>)}
                         </select>
                         <select className="dropdowns" onChange={this.handleTheChangeBro}>
                             <option>Select a city...</option>
-                            {this.state.city.map((cities) => <option key={cities.id + 3000} value={cities.id}>
+                            {this.state.city.map((cities) => <option key={cities.id} value={cities.id}>
                                 {cities.name}
                             </option>)}
                         </select>
-                        <div id='weatherLink' onClick={this.resetDrops}>
+                        <div id='weatherLink'>
                             <Link
                                 className="getWeatherButton"
                                 style={{ display: this.state.buttonActive }}
@@ -137,4 +126,4 @@ class CitySelector extends Component {
     }
 }
 
-export default CitySelector;
+export default StateDropdown;
