@@ -30,7 +30,7 @@ class CitySelector extends Component {
         }
     }
 
-    handleChange = (e) => {
+    handleCountryChange = (e) => {
         let coId = e.target.value;
         let coName = new getCountryById(coId);
         this.selCo = coName.name;
@@ -41,7 +41,7 @@ class CitySelector extends Component {
         });
     }
 
-    handleThisChange = (e) => {
+    handleStateChange = (e) => {
         let stId = e.target.value;
         let stName = getStateById(stId);
         this.setState({
@@ -70,7 +70,7 @@ class CitySelector extends Component {
         });
     }
 
-    handleTheChangeBro = (e) => {
+    handleCityChange = (e) => {
         let ctId = e.target.value;
         let ctName = getCityById(ctId);
         this.setState({ cityName: ctName.name });
@@ -82,9 +82,13 @@ class CitySelector extends Component {
     resetDrops = (e) => {
         this.setState({
             city: [''],
-            country: new getAllCountries(),
+            country: [''],
             stateRegion: [''],
             buttonActive: 'none'
+        }, () => {
+            this.setState({
+                country: new getAllCountries()
+            })
         })
     }
 
@@ -95,19 +99,19 @@ class CitySelector extends Component {
                 <div className="selectorContainer">
                     <div className="dropdownContainer">
                         <h3>Select a City</h3>
-                        <select id="first" onChange={this.handleChange} className="dropdowns">
+                        <select id="first" onChange={this.handleCountryChange} className="dropdowns">
                             <option>Select a country</option>
                             {this.state.country.map((country) => <option key={country.id} value={country.id}>
                                 {country.name}
                             </option>)}
                         </select>
-                        <select className="dropdowns" onChange={this.handleThisChange}>
+                        <select className="dropdowns" onChange={this.handleStateChange}>
                             <option>Select a state/region...</option>
                             {this.state.stateRegion.map((states) => <option key={states.id + 2000} value={states.id}>
                                 {states.name}
                             </option>)}
                         </select>
-                        <select className="dropdowns" onChange={this.handleTheChangeBro}>
+                        <select className="dropdowns" onChange={this.handleCityChange}>
                             <option>Select a city...</option>
                             {this.state.city.map((cities) => <option key={cities.id + 3000} value={cities.id}>
                                 {cities.name}

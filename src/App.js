@@ -1,11 +1,10 @@
 // IMPORT PACKAGE REFERENCES
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
-import CitySelector from './components/CitySelector';
-import Header from './components/Header';
-
 
 // IMPORT COMPONENT REFERENCES
+import Header from './components/Header';
+import CitySelector from './components/CitySelector';
 
 // IMPORT CSS
 import './index.css';
@@ -19,7 +18,7 @@ class App extends Component {
                 <div>
                     <Header />
                     <Switch>
-                        <Route path="/" exact component={CitySelector} />
+                        <Route exact path="/" component={CitySelector} />
                     </Switch>
                 </div>
             </Router>

@@ -11,6 +11,17 @@ class CurrentWeather extends Component {
         }
     }
 
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.location.state !== this.props.location.state) {
+            this.setState({
+            city: nextProps.location.state.city,
+            temp: nextProps.location.state.temp,
+            desc: nextProps.location.state.detail,
+            icon: nextProps.location.state.icon
+        });
+        }
+    }
+
     componentDidMount() {
         const { city } = this.props.location.state;
         const { temp } = this.props.location.state;
