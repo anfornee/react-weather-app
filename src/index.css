@@ -80,7 +80,7 @@ h3 {
   border: none;
   box-shadow: 1px 1px 3px 1px rgba(209, 209, 209, 0.808);
   margin-top: 1em;
-  width: 40%;
+  width: 15em;
   height: 40px;
 }
 
@@ -91,11 +91,18 @@ h3 {
 }
 
 .getWeatherButton {
-  padding: .5em;
-  font-size: 1.25em;
-  border-radius: 1em;
-  background: #06D6A0;
-  color: white;
+  position: relative;
+    top: .5em;
+    padding: .5em;
+    font-size: 1.25em;
+    border-radius: 1em;
+    background: #06D6A0;
+    color: white;
+}
+
+.getWeatherButton:hover {
+  text-decoration: none;
+  color: #25547C;
 }
 
 .getWeatherButton:active {
@@ -112,19 +119,16 @@ h2 {
 .curWeaComp {
   display: flex;
   position: relative;
-  top: 20px;
+  bottom: 1.5em;
   margin-top: 0px;
   font-size: 20px;
-  min-height: 40%;
-  max-height: 50%;
-  width: 40%;
-  padding: 20px 0px 20px 0px;
+  padding: 1em;
   background: #FCFCFC;
   border-radius: 20px;
-  box-shadow: 3px 10px 20px 3px rgb(161, 161, 161);
-  flex-direction: column;
+  box-shadow: 1px 1px 10px rgb(161, 161, 161);
   justify-content: space-around; 
   align-items: center;
+  text-align: center;
 }
 
 .resContainer {
